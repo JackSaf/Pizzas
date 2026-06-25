@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Pizzas</string>
+
+    <string name="title_pizzas">Pizzas</string>
+    <string name="pizza_added_to_cart">Pizzas are successfully added to cart</string>
+    <string name="pizza_added_to_favorites">Pizza is added to favorites</string>
+    <string name="price_format">$%1$.2f</string>
+    <string name="button_text_add">Add</string>
+    <string name="error_text_something_went_wrong">Something went wrong</string>
+    <string name="button_text_retry">Retry</string>
+</resources>
