@@ -40,7 +40,7 @@ fun ZoomedPizzaOverlay(
     onZoomOut: () -> Unit,
     onShowItemBack: () -> Unit
 ) {
-    val zoomedIn = remember { mutableStateOf(isZoomedIn) }.apply {
+    val dialogShown = remember { mutableStateOf(isZoomedIn) }.apply {
         if (isZoomedIn) value = true
     }
     val screenCenterOffset = LocalWindowInfo.current.containerSize.center.y
@@ -88,19 +88,19 @@ fun ZoomedPizzaOverlay(
             joinAll(positionJob, scaleJob)
             onShowItemBack.invoke()
             alpha.animateTo(0f, animationSpec = tween(300))
-            zoomedIn.value = false
+            dialogShown.value = false
         }
     }
 
     OverlayDialog(
-        show = zoomedIn.value,
+        show = dialogShown.value,
         onDismissRequest = onZoomOut,
     ) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .then(if(zoomedIn.value) Modifier.pointerInput(Unit) {
-                    detectTransformGestures { centroid, pan, zoom, rotation ->
+                .then(if(dialogShown.value) Modifier.pointerInput(Unit) {
+                    detectTransformGestures { _, _, zoom, _ ->
                         if (zoom < 1f) onZoomOut.invoke()
                     }
                 } else Modifier),
