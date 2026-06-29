@@ -2,7 +2,7 @@ package com.jacks.pizzas.core.data.network.di
 
 import coil.Coil
 import coil.ImageLoader
-import com.jacks.pizzas.pizzas.data.remote.PizzaApi
+import com.jacks.pizzas.pizzas.data.network.PizzaApi
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient

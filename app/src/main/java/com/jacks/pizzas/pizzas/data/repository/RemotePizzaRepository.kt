@@ -8,7 +8,7 @@ import coil.request.ImageRequest
 import com.jacks.pizzas.core.domain.util.DataError
 import com.jacks.pizzas.core.domain.util.Result
 import com.jacks.pizzas.pizzas.data.mapper.toDomain
-import com.jacks.pizzas.pizzas.data.remote.PizzaApi
+import com.jacks.pizzas.pizzas.data.network.PizzaApi
 import com.jacks.pizzas.pizzas.domain.PizzaRepository
 import com.jacks.pizzas.pizzas.domain.model.Pizza
 import kotlinx.coroutines.Dispatchers

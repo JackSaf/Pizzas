@@ -1,7 +1,7 @@
 package com.jacks.pizzas.pizzas.data.mapper
 
-import com.jacks.pizzas.pizzas.data.remote.model.PizzaDto
-import com.jacks.pizzas.pizzas.data.remote.model.PizzaVariantDto
+import com.jacks.pizzas.pizzas.data.network.model.PizzaDto
+import com.jacks.pizzas.pizzas.data.network.model.PizzaVariantDto
 import com.jacks.pizzas.pizzas.domain.model.Pizza
 import com.jacks.pizzas.pizzas.domain.model.PizzaSize
 import com.jacks.pizzas.pizzas.domain.model.PizzaVariant
