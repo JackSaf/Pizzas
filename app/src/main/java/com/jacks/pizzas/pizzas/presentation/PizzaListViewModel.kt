@@ -11,6 +11,7 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
@@ -57,9 +58,9 @@ class PizzaListViewModel(private val pizzaRepository: PizzaRepository) : ViewMod
     init {
         selectedPizzaId.onEach { resetQuantity() }.launchIn(viewModelScope)
         combine(
-            state.map { it.currentQuantity },
-            state.map { it.selectedSize },
-            state.map { it.pizzas },
+            state.map { it.currentQuantity }.distinctUntilChanged(),
+            state.map { it.selectedSize }.distinctUntilChanged(),
+            state.map { it.pizzas }.distinctUntilChanged(),
             selectedPizzaId
         ) { currentQuantity, selectedSize, pizzas, pizzaId ->
             val currentPizza = pizzas.find { it.id == pizzaId }
